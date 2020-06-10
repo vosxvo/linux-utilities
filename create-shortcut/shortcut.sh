@@ -1,5 +1,5 @@
 #!/bin/bash
 
 main() {
-    # Checking for root access
+    # Checking for root accessgti
 }
