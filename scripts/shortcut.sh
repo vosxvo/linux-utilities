@@ -85,10 +85,43 @@ create_shortcut() {
     fi
 }
 
+# Delete shortcut
+delete_shortcut() {
+    local name
+    read -p "Enter shortcut name : " name
+    if [[ -f "$SHORTCUT_DIR/$name.desktop" ]]; then
+        read -p "Are your sure (y|n) ? " option
+        case ${option} in
+            "y"|"Y")
+                sudo rm "$SHORTCUT_DIR/$name.desktop";;
+            "n"|"N")
+                echo "Canceled!";;
+        esac
+    else
+        echo "$name.desktop isn't exist!"
+    fi
+}
+
+# Edit shortcut
+edit_shortcut() {
+    
+}
+
 if [[ $UID -eq $ROOT_UID ]]; then
-    build_shortcut
-    create_shortcut
+    case $1 in
+        1)
+            clear
+            echo "CREATE SHORTCUT"
+            echo "---------------"
+            build_shortcut
+            create_shortcut;;
+        2)
+            clear
+            echo "DELETE SHORTCUT"
+            echo "---------------"
+            delete_shortcut;;
+    esac
 else
-    echo "[ Error ] - Mising permision!"
-    sudo $0
+    echo "[ Warning ] - This action required root access!"
+    sudo $0 $1
 fi
