@@ -93,9 +93,10 @@ delete_shortcut() {
         read -p "Are your sure (y|n) ? " option
         case ${option} in
             "y"|"Y")
-                sudo rm "$SHORTCUT_DIR/$name.desktop";;
+                sudo rm "$SHORTCUT_DIR/$name.desktop"
+                echo "Done";;
             "n"|"N")
-                echo "Canceled!";;
+                echo "Cancel!";;
         esac
     else
         echo "$name.desktop isn't exist!"
@@ -103,9 +104,9 @@ delete_shortcut() {
 }
 
 # Edit shortcut
-edit_shortcut() {
+# edit_shortcut() {
     
-}
+# }
 
 if [[ $UID -eq $ROOT_UID ]]; then
     case $1 in
