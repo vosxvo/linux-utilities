@@ -1,4 +1,4 @@
 # Linux Utilities
 
-### Features :
-- Shortcut utilities (create, delete, edit)
+### How to use
+1. How to create a desktop entry
