@@ -7,6 +7,11 @@ apache2() {
     echo "Successful!"
 }
 
+nginx() {
+    sudo apt install nginx
+    echo "Successful!"
+}
+
 mysql() {
     sudo apt install mysql-server -y
     sudo mysql_secure_installation
@@ -27,12 +32,45 @@ lamp() {
     php
 }
 
-main() {
+lemp() {
+    echo ""
+}
 
+install() {
+    clear
+    echo "==================================================================="
+    echo "||          Ubuntu 20.04 Focal Utilities Menu > Install          ||"
+    echo "==================================================================="
+    echo "1. LAMP stack"
+    echo "2. LEMP stack"
+    echo "Press another keys to back!"
+    local option
+    read -p "Enter option : " option
+    case $option in
+        1)  lamp;;
+        2)  lemp;;
+    esac
+}
+
+main() {
+    clear
+    echo "==================================================================="
+    echo "||               Ubuntu 20.04 Focal Utilities Menu               ||"
+    echo "==================================================================="
+    echo "1. Install"
+    echo "Press another keys to exit!"
+    local option
+    read -p "Enter option : " option
+    case $option in
+        1)  install;;
+        *)  exit;;
+    esac
 }
 
 if [[ $UID -eq $ROOT_UID ]]; then
-    main
+    while true; do
+        main
+    done
 else
     echo "[Warning] This script must be run as root privilege!"
     sudo $0
