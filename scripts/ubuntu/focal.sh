@@ -3,33 +3,35 @@
 readonly ROOT_UID=0
 
 apache2() {
-    sudo apt install apache2 -y
+    apt install apache2 -y
     echo "Successful!"
 }
 
 nginx() {
-    sudo apt install nginx
+    apt install nginx
     echo "Successful!"
 }
 
 mysql() {
-    sudo apt install mysql-server -y
-    sudo mysql_secure_installation
+    apt install mysql-server -y
+    mysql_secure_installation
     echo "Successful!"
 }
 
 php() {
-    sudo apt install php libapache2-mod-php php-mysql -y
+    apt install php libapache2-mod-php php-mysql -y
     echo "Successful!"
 }
 
 lamp() {
+    clear
     echo "Installing Apache 2..."
     apache2
     echo "Installing MySQL..."
     mysql
     echo "Installing PHP..."
     php
+    read -p "Press any key to continue!"
 }
 
 lemp() {
@@ -73,5 +75,5 @@ if [[ $UID -eq $ROOT_UID ]]; then
     done
 else
     echo "[Warning] This script must be run as root privilege!"
-    sudo $0
+    sudo -i
 fi
