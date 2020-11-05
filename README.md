@@ -8,5 +8,5 @@
 
 ### How to use
 #### Warning : This script is unstable!
-- Open linux-utilities folder in Terminal, execute command `sudo chmod u+x install.sh`
+- Open **linux-utilities** folder in **Terminal**, execute command `sudo chmod u+x install.sh`
 - Execute **install.sh** file by command `sudo ./install.sh`
