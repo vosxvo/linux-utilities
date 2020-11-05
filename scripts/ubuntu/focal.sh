@@ -74,6 +74,6 @@ if [[ $UID -eq $ROOT_UID ]]; then
         main
     done
 else
-    echo "[Warning] This script must be run as root privilege!"
-    sudo -i
+    echo "[Warning] This script must be run with root privilege!"
+    sudo $0
 fi
