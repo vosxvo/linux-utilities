@@ -1,7 +1,12 @@
 # Linux Utilities
 
+#### What's news - Updated 05/11/2020
+- Added Firefox Switch Users function for Ubuntu
+
 ### Features
-1. Desktop Entry Tools
+1. Firefox Switch Users function
+
+
 
 ### Desktop Entry Tools for Linux
 #### Create, Edit and Delete Desktop Entry Script
