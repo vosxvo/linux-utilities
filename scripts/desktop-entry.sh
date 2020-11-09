@@ -220,9 +220,9 @@ copy_de() {
 # Create desktop entry
 create_de() {
     clear
-    echo "===================="
-    echo "CREATE DESKTOP ENTRY"
-    echo "===================="
+    echo "==================================================================="
+    echo "                        CREATE DESKTOP ENTRY                       "
+    echo "==================================================================="
     echo ""
     echo "Choose type of desktop entry :"
     echo "1 - File"
@@ -243,9 +243,9 @@ create_de() {
 # Delete desktop entry
 delete_de() {
     clear
-    echo "===================="
-    echo "DELETE DESKTOP ENTRY"
-    echo "===================="
+    echo "==================================================================="
+    echo "                       DELETE DESKTOP ENTRY                        "
+    echo "==================================================================="
     echo ""
     local name
     while [[ true ]]; do
@@ -279,9 +279,9 @@ delete_de() {
 # Edit desktop entry
 edit_de() {
     clear
-    echo "=================="
-    echo "EDIT DESKTOP ENTRY"
-    echo "=================="
+    echo "==================================================================="
+    echo "                         EDIT DESKTOP ENTRY                        "
+    echo "==================================================================="
     echo ""
     local name
     while [[ true ]]; do
@@ -304,9 +304,9 @@ edit_de() {
 
 main_menu() {
     clear
-    echo "==================="
-    echo "DESKTOP ENTRY TOOLS"
-    echo "==================="
+    echo "==================================================================="
+    echo "                        DESKTOP ENTRY TOOLS                        "
+    echo "==================================================================="
     echo ""
     echo "1 - Create"
     echo "2 - Delete"
