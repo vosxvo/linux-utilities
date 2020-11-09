@@ -2,13 +2,13 @@
 
 readonly ROOT_UID=0
 MENU_DIR="/usr/share/applications"
-DESKTOP_DIR="~/Desktop"
+DESKTOP_DIR="/home/$USER/Desktop"
 URL_REGEX='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 # File information
 file_meta() {
     local location
-    local icon
+    # local icon
     local name
     local keywords
 
@@ -27,37 +27,42 @@ file_meta() {
         fi
     done
 
-    while [[ ! -f "$icon" ]]; do
-        echo "Hint : Use TAB to auto complete path"
-        read -ep "Enter location of icon : " icon
-        if [[ ! -f "$icon" ]]; then
-            local option
-            read -p "This location is invalid. Re-enter (y|n) ? " option
-            if [[ "$option" == "n" ]] || [[ "$option" == "N" ]]; then
-                echo "Script aborted!!!"
-                exit
-            elif [[ "$option" != "y" ]] || [[ "$option" != "Y" ]]; then
-                echo "Invalid option"
-            fi
-        fi
-    done
+    # while [[ ! -f "$icon" ]]; do
+    #     echo "Hint : Use TAB to auto complete path"
+    #     read -ep "Enter location of icon : " icon
+    #     if [[ ! -f "$icon" ]]; then
+    #         local option
+    #         read -p "This location is invalid. Re-enter (y|n) ? " option
+    #         if [[ "$option" == "n" ]] || [[ "$option" == "N" ]]; then
+    #             echo "Script aborted!!!"
+    #             exit
+    #         elif [[ "$option" != "y" ]] || [[ "$option" != "Y" ]]; then
+    #             echo "Invalid option"
+    #         fi
+    #     fi
+    # done
 
     read -p "Enter link name : " name
-    echo "Tips : Set keywords to search quickly"
-    read -p "Enter keywords : " keywords
+    # echo "Tips : Set keywords to search quickly"
+    # read -p "Enter keywords : " keywords
+
+    # Create link file
+    echo "$DESKTOP_DIR/$name"
+    read -p ""
+    # ln -s "$location" "$DESKTOP_DIR/$name"
 
     # Build file
-    echo "Build..."
-    echo "[Desktop Entry]" > .desktop
-    if [[ -n "$name" ]]; then
-        echo "Name=$name" >> .desktop
-    fi
-    if [[ -n "$keywords" ]]; then
-        echo "Keywords=$keywords" >> .desktop
-    fi
-    echo "Type=Link" >> .desktop
-    echo "URL=file://$(pwd)$location" >> .desktop
-    echo "Icon=$icon" >> .desktop
+    # echo "Build..."
+    # echo "[Desktop Entry]" > .desktop
+    # if [[ -n "$name" ]]; then
+    #     echo "Name=$name" >> .desktop
+    # fi
+    # if [[ -n "$keywords" ]]; then
+    #     echo "Keywords=$keywords" >> .desktop
+    # fi
+    # echo "Type=Link" >> .desktop
+    # echo "URL=file://$(pwd)$location" >> .desktop
+    # echo "Icon=$icon" >> .desktop
 }
 
 # URL information
@@ -305,7 +310,7 @@ edit_de() {
 main_menu() {
     clear
     echo "==================================================================="
-    echo "                        DESKTOP ENTRY TOOLS                        "
+    echo "||                      DESKTOP ENTRY TOOLS                      ||"
     echo "==================================================================="
     echo ""
     echo "1 - Create"
