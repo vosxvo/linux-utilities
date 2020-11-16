@@ -3,23 +3,23 @@
 readonly ROOT_UID=0
 
 apache2() {
-    apt install apache2 -y
+    sudo apt install apache2 -y
     echo "Successful!"
 }
 
 nginx() {
-    apt install nginx
+    sudo apt install nginx
     echo "Successful!"
 }
 
 mysql() {
-    apt install mysql-server -y
+    sudo apt install mysql-server -y
     mysql_secure_installation
     echo "Successful!"
 }
 
 php() {
-    apt install php libapache2-mod-php php-mysql -y
+    sudo apt install php libapache2-mod-php php-mysql -y
     echo "Successful!"
 }
 

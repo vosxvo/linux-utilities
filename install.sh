@@ -26,4 +26,14 @@ detect_os() {
     esac
 }
 
+# Make script run with root privilege
+grant_root() {
+    if [[ $UID -eq $ROOT_UID ]]; then
+        # Coding continue
+    else
+        echo "[Warning] This script must be run with root privilege!"
+        sudo $0
+    fi
+}
+
 detect_os
